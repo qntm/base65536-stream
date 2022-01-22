@@ -1,6 +1,6 @@
 {
   "name": "base65536-stream",
-  "version": "65.5.36",
+  "version": "65.5.37",
   "description": "Streaming implementation of the Base65536 encoding",
   "homepage": "https://github.com/qntm/base65536-stream",
   "repository": {
