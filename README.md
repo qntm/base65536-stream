@@ -5,23 +5,32 @@ Streaming implementation of the [Base65536](https://github.com/qntm/base65536) e
 ## Installation
 
 ```bash
-$ npm install base65536-stream
+npm install base65536-stream
+```
+
+## Example usage
+
+```js
+import { EncodeStream, DecodeStream } from 'base65536-stream'
+
+if (process.argv[2] === '--decode') {
+  process.stdin
+    .setEncoding('utf8') // convert incoming binary data to text
+    .pipe(new DecodeStream())
+    .pipe(process.stdout)
+} else {
+  process.stdin
+    .pipe(new EncodeStream())
+    .pipe(process.stdout)
+}
 ```
 
 ## API
 
-### base65536.createEncodeStream([wrap])
+### EncodeStream
 
-Returns a new [`stream`](https://nodejs.org/api/stream.html) object which encodes binary data as Base65536.
+Subclass of [`Transform`](https://nodejs.org/api/stream.html#class-streamtransform) which encodes binary data as Base65536 text.
 
-If `wrap` is set, a `\n` will be inserted between every `wrap` Unicode characters of output. Suggested value: 140.
+### DecodeStream
 
-### base65536.createDecodeStream([ignoreGarbage])
-
-Returns a new [`stream`](https://nodejs.org/api/stream.html) object which decodes Base65536 to binary data.
-
-If `ignoreGarbage` is set to `true`, non-Base65536 characters (line breaks, spaces, alphanumerics, ...) in the input will be ignored rather than causing an error.
-
-## License
-
-MIT
+Subclass of [`Transform`](https://nodejs.org/api/stream.html#class-streamtransform) object which decodes Base65536 string data to binary.
