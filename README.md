@@ -33,4 +33,4 @@ Subclass of [`Transform`](https://nodejs.org/api/stream.html#class-streamtransfo
 
 ### DecodeStream
 
-Subclass of [`Transform`](https://nodejs.org/api/stream.html#class-streamtransform) object which decodes Base65536 string data to binary.
+Subclass of [`Transform`](https://nodejs.org/api/stream.html#class-streamtransform) which decodes Base65536 string data to binary.
