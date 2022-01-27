@@ -76,12 +76,11 @@ export class DecodeStream extends Transform {
       if (blockStart === paddingBlockStart) {
         bytes.push(oddByte)
         this.done = true
-      } else {
-        if (!(blockStart in b2s)) {
-          callback(Error(`Not a valid Base65536 character: ${chr}`))
-          return
-        }
+      } else if (blockStart in b2s) {
         bytes.push(oddByte, b2s[blockStart])
+      } else {
+        callback(Error(`Not a valid Base65536 character: ${chr}`))
+        return
       }
     }
     callback(null, Buffer.from(bytes))
