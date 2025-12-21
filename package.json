@@ -28,7 +28,6 @@
   "author": "qntm",
   "license": "MIT",
   "devDependencies": {
-    "@types/jasmine": "^2.5.53",
     "@types/node": "^7.0.14",
     "base65536-test": "^1.1.4",
     "c8": "^7.11.0",
