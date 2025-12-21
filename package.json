@@ -19,10 +19,10 @@
     "binary"
   ],
   "scripts": {
-    "mocha": "c8 --100 mocha",
+    "unit": "c8 --100 mocha",
     "tag": "node -e \"require('child_process').spawn('git', ['tag', `v${require('./package.json').version}`], { stdio: 'inherit' })\"",
     "tag-and-publish": "npm run tag && git push --tags && npm publish && npm version patch --no-git-tag-version && git add . && git commit -m \"Bump patch\" && git push",
-    "test": "npm run mocha"
+    "test": "npm run unit"
   },
   "dependencies": [],
   "author": "qntm",
