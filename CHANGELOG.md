@@ -1,3 +1,9 @@
+# Change log
+
+## 655.3.6
+
+Support for Node.js 18 and lower is dropped.
+
 ## 65.5.36
 
 * Support for Node.js <14 is dropped.
