@@ -1,5 +1,5 @@
-import assert from 'assert'
-import fs from 'fs'
+import assert from 'node:assert/strict'
+import fs from 'node:fs'
 
 import { EncodeStream, DecodeStream } from '../src/index.js'
 
@@ -40,7 +40,7 @@ describe('base65536-stream', () => {
             strs.push(chunk)
           })
           encodeStream.on('end', () => {
-            assert.strictEqual(strs.join(''), text)
+            assert.equal(strs.join(''), text)
             done()
           })
         })
@@ -62,7 +62,7 @@ describe('base65536-stream', () => {
             buffers.push(chunk)
           })
           decodeStream.on('end', () => {
-            assert.deepStrictEqual(Buffer.concat(buffers), binary)
+            assert.deepEqual(Buffer.concat(buffers), binary)
             done()
           })
         })
@@ -76,7 +76,7 @@ describe('base65536-stream', () => {
           const textFileName = caseName + '.txt'
           it(textFileName + ' survives', () => {
             const text = fs.readFileSync(textFileName, 'utf8')
-            assert.strictEqual(text.normalize(form), text)
+            assert.equal(text.normalize(form), text)
           })
         })
       })
