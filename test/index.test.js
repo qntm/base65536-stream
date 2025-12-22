@@ -32,7 +32,7 @@ describe('base65536-stream', () => {
         const binaryFileName = caseName + '.bin'
         const textFileName = caseName + '.txt'
 
-        it(binaryFileName + ' to ' + textFileName, done => {
+        it(binaryFileName + ' to ' + textFileName, (t, done) => {
           const text = fs.readFileSync(textFileName, 'utf8')
           const strs = []
           const encodeStream = fs.createReadStream(binaryFileName)
@@ -53,7 +53,7 @@ describe('base65536-stream', () => {
         const textFileName = caseName + '.txt'
         const binaryFileName = caseName + '.bin'
 
-        it(textFileName + ' to ' + binaryFileName, done => {
+        it(textFileName + ' to ' + binaryFileName, (t, done) => {
           const binary = fs.readFileSync(binaryFileName)
           const buffers = []
           const decodeStream = fs.createReadStream(textFileName)
@@ -101,7 +101,7 @@ describe('base65536-stream', () => {
     describe('cannot decode', () => {
       caseNames.forEach(caseName => {
         const textFileName = caseName + '.txt'
-        it(textFileName, done => {
+        it(textFileName, (t, done) => {
           const decodeStream = fs.createReadStream(textFileName)
             .setEncoding('utf8')
             .pipe(new DecodeStream())
