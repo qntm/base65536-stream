@@ -2,7 +2,7 @@
 
 ## 655.3.6
 
-Support for Node.js 18 and lower is dropped.
+Support for Node.js 22 and lower is dropped.
 
 ## 65.5.36
 
